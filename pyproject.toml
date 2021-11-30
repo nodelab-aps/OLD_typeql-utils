@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "typeql-utils"
+version = "0.1.0"
+description = "utilities for manipulating TypeQL queries"
+authors = ["Jon Thompson <jjt@tutanota.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+typedb-client = "^2.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
