@@ -1,6 +1,7 @@
+# WORK IN PROGRESS !!!
+
 import re 
 import typeql_utils
-
 
 def parse_attr_clause(string):
     '''
@@ -10,6 +11,8 @@ def parse_attr_clause(string):
             dict {var_name: {}}
             if True, return a dict {}
         
+        !! WORK IN PROGRESS !!
+
     '''
     out = {
         
@@ -62,11 +65,16 @@ def check_query_schema_validity(query):
     #           attributes 
     #               "ineligible_has"
     #               "ineligible_key"
+    
+    !!! WORK IN PROGRESS !!!
     '''
 
 
 def get_query_vars(query, errors):
-    
+    '''
+    !!! WORK IN PROGRESS !!!
+    '''
+
     dict_vars = {}
 
     # TODO this should be a dict describing, for each variable

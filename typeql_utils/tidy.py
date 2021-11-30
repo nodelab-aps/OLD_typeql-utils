@@ -14,6 +14,7 @@ def wrap_in_quotes(value, single=True):
     value = "'" + value + "'" if single else '"' + value + '"'
     return value
 
+
 def as_numeric(value, decimal_separator="."):
     '''@usage check if value already is numeric. If not, try to convert to float or integer
     @param value: a value to be returned as numeric
@@ -31,6 +32,8 @@ def format_value_for_query(value, ValueType):
     '''
     @usage given some value and a grakn ValueType, return value in the appropriate format for a query
     ''' 
+    if not ValueType in ["STRING", "DATETIME", "LONG", "DOUBLE", "BOOLEAN"]:
+        raise ValueError(f'invalid ValueType {ValueType} - must be one of "STRING", "DATETIME", "LONG", "DOUBLE", "BOOLEAN"')
     if ValueType == "STRING":
         value = wrap_in_quotes(value, single=True)
     else:

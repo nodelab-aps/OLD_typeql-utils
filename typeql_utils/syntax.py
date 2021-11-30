@@ -28,7 +28,10 @@ def check_clause_syntax(string):
     '''
         @usage evaluate syntax of a TypeQL query 
         @param string: a clause from a typeql query e.g. "$x isa person"
-        @return True in valid else False 
+        @return True if valid else False 
+        
+        !!! WORK IN PROGRESS !!!
+
     '''
     verdict = True 
     
@@ -57,6 +60,32 @@ def check_clause_syntax(string):
         pass 
     return None 
 
+
+def check_query_syntax(
+    query
+    ):
+    '''@usage if query is syntactically invalid, raise ValueError
+    @param query: typeql query, string 
+    @return None
+    TODO: finish check_clause_syntax and run it on each string
+    TODO: this is a hack - need to anchor to typeql syntax 
+    '''
+    reason = None
+    
+    if "{" in query and "}" in query:
+        if query.index("}") < query.index("{"):
+            reason = "unmatched } in query"
+        elif query.count("{") == 1 and query.count("}") == 1:
+            reason = "unnecessary curly brackets around a single clause"
+    else:
+        if query.count("{") > query.count("}"):
+            reason = "unmatched { in query"
+        elif query.count("}") > query.count("{"):
+            reason = "unmatched } in query"
+    if reason:
+        raise ValueError(reason)
+
+
 def check_clause_schema_validity(string, dict_rootType_type_dict):
     '''
     @param dict_rootType_type_dict
@@ -80,6 +109,9 @@ def check_clause_schema_validity(string, dict_rootType_type_dict):
                 False
             else if clause is semantically invalid 
                 None 
+    
+    !!! WORK IN PROGRESS !!!
+    
     '''
     pass 
 
